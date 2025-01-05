@@ -7,13 +7,15 @@ services:
       - .:/workspace
     ports:
       - "5000:5000"
+    depends_on:
+      - db
     environment:
       DOTNET_USE_POLLING_FILE_WATCHER: "1"
     networks:
       - admin
       
   db:
-    image: postgres:15
+    image: postgres:16.4-alpine3.20
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -21,6 +23,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
       - postgres_data:/var/lib/postgresql/data
     networks:
       - admin
