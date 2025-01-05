@@ -1,0 +1,45 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+    networks:
+      - admin
+      
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: galinheiroDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - admin
+
+  pgadmin:
+    image: dpage/pgadmin4:8.13.0
+    ports:
+      - 5050:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - db
+    networks:
+      - admin
+
+networks:
+  admin:
+
+volumes:
+  postgres_data:
