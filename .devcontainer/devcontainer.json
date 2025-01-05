@@ -2,10 +2,7 @@
   "name": ".NET chicken",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "api",
-  "forwardPorts": [
-    5001,
-    5000
-  ],
+  "forwardPorts": [5000],
   "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
