@@ -1,0 +1,28 @@
+# Ignore the build output folder
+bin/
+obj/
+
+# Ignore the project user settings file
+.vs/
+
+# Ignore the .NET Core configuration files
+project.lock.json
+project.fragment.lock.json
+
+# Ignore the Visual Studio for Mac configuration files
+.vscode/
+
+# Ignore the ASP.NET Core Development certificate
+https/
+
+# Ignore config files for IDEs
+.vscode/
+
+# Ignore the local environment files
+.env
+
+# Ignore Visual Studio for Mac files
+.vscode/
+
+# Ignore ASP.NET Core temporary files
+tmp/
