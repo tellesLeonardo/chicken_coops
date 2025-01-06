@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS shed (
     max_chickens_capacity INT
 );
 
--- Tabela de Galinhas (Chickens)
-CREATE TABLE IF NOT EXISTS chickens (
+-- Tabela de Galinhas (Chicken)
+CREATE TABLE IF NOT EXISTS chicken (
     id SERIAL PRIMARY KEY,
     birth_date DATE,
     name VARCHAR(100),
@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS chickens (
     FOREIGN KEY (status_id) REFERENCES chicken_status(id)
 );
 
--- Tabela de Ovos (Eggs)
-CREATE TABLE IF NOT EXISTS eggs (
+-- Tabela de Ovos (egg)
+CREATE TABLE IF NOT EXISTS egg (
     id SERIAL PRIMARY KEY,
     quantity INT,
     date DATE,
@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS eggs (
     FOREIGN KEY (chicken_id) REFERENCES chickens(id)
 );
 
--- Tabela de Rações (Feeds)
-CREATE TABLE IF NOT EXISTS feeds (
+-- Tabela de Rações (Feed)
+CREATE TABLE IF NOT EXISTS feed (
     id SERIAL PRIMARY KEY,
     feed_type VARCHAR(100),
     quantity_kg INT,
